@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "copy-ext-demo",
+  "version": "1.0.0",
+  "description": "demo",
+  "action": {
+    "default_icon": "logo.png",
+    "default_title": "copy"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "copy-cmd": {
+      "suggested_key": {
+        "default": "Alt+C"
+      },
+      "description": "Copy activity tab URL"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["activeTab", "clipboardWrite"]
+}
